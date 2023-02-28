@@ -1,5 +1,6 @@
 import {useState} from 'react';
-
+import Card from "./shared/Card";
+import PropTypes from "prop-types";
 function FeedbackItem({ item }) {
 
     const [rating, setRating] = useState(7)
@@ -21,11 +22,13 @@ function FeedbackItem({ item }) {
 
     return (
         <>
-        <div className="card">
-            {/*This is using object destructuring from a prop*/}
-            <div className="num-display">{item.rating}</div>
-            <div className="text-display">{item.text}</div>
-        </div>
+            {/*<Card reverse={true}>*/}
+            {/*<ard reverse={false}>*/}
+            <Card>
+                {/*This is using object destructuring from a prop*/}
+                <div className="num-display">{item.rating}</div>
+                <div className="text-display">{item.text}</div>
+            </Card>
             {/*This is hard coding use states*/}
             <div className="num-display">{rating}</div>
             <div className="text-display">{text}</div>
@@ -33,4 +36,8 @@ function FeedbackItem({ item }) {
         </>
     )
 }
+FeedbackItem.propTypes = {
+    item: PropTypes.object.isRequired,
+}
+
 export default FeedbackItem;

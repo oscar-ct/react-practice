@@ -1,3 +1,7 @@
 body {
     color: pink;
 }
+.card.reverse {
+    background-color: black;
+    color: white;
+}
