@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import FeedbackItem from "./components/FeedbackItem";
 
 function App() {
     const title = 'Blog Post';
@@ -32,6 +33,7 @@ function App() {
     return (
         <>
             <Header text="Test UI" bgColor='red' textColor='black' />
+            <FeedbackItem />
             <div className='container'>
                 <h1>Hello from the app component</h1>
                 <p>{title.toUpperCase()} :) {body}</p>
