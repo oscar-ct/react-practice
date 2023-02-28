@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-function FeedbackItem() {
+function FeedbackItem({ item }) {
 
     const [rating, setRating] = useState(7)
     const [text, setText] = useState("This is an example of a feedback item")
@@ -13,18 +13,24 @@ function FeedbackItem() {
             if (rating % 2 === 0) {
                 return <h1>GOOD BYE</h1>;
             } else {
-                return <h5>{prev}</h5>;
+                return "hi";
             }
         })
     }
 
 
     return (
+        <>
         <div className="card">
+            {/*This is using object destructuring from a prop*/}
+            <div className="num-display">{item.rating}</div>
+            <div className="text-display">{item.text}</div>
+        </div>
+            {/*This is hard coding use states*/}
             <div className="num-display">{rating}</div>
             <div className="text-display">{text}</div>
             <button onClick={handleClick}>Click</button>
-        </div>
+        </>
     )
 }
 export default FeedbackItem;

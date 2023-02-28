@@ -1,7 +1,11 @@
 import Header from "./components/Header";
 import FeedbackItem from "./components/FeedbackItem";
+import { useState } from "react";
+import FeedbackList from "./components/FeedbackList";
+import FeedbackData from "./data/FeedbackData";
 
 function App() {
+    const [feedback, setFeedback] = useState(FeedbackData)
     const title = 'Blog Post';
     const body = 'This is my blog post';
     const comments = [
@@ -30,10 +34,15 @@ function App() {
         </ul>
     </div>;
 
+
+
+
+
     return (
         <>
             <Header text="Test UI" bgColor='red' textColor='black' />
-            <FeedbackItem />
+            <FeedbackList feedback={feedback}/>
+            {/*<FeedbackItem />*/}
             <div className='container'>
                 <h1>Hello from the app component</h1>
                 <p>{title.toUpperCase()} :) {body}</p>
