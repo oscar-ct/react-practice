@@ -31,7 +31,7 @@ function App() {
 
     return (
         <>
-            <Header text="Test UI"/>
+            <Header text="Test UI" bgColor='red' textColor='black' />
             <div className='container'>
                 <h1>Hello from the app component</h1>
                 <p>{title.toUpperCase()} :) {body}</p>
