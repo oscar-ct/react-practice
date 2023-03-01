@@ -4,7 +4,8 @@ import { useState } from "react";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats";
-import FeedbackFrom from "./components/FeedbackFrom";
+import FeedbackForm from "./components/FeedbackForm";
+import RatingSelect from "./components/RatingSelect";
 
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData)
@@ -50,7 +51,7 @@ function App() {
     return (
         <>
             <Header text="Test UI" bgColor='red' textColor='black' />
-            <FeedbackFrom />
+            <FeedbackForm />
             <FeedbackStats feedback={feedback}/>
             <FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>
             {/*<FeedbackItem />*/}
