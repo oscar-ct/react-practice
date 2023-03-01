@@ -6,7 +6,12 @@ const FeedbackData = [
     },
     {
         id: 2,
-        rating: 9,
+        rating: 9.2,
+        text: 'This is fun'
+    },
+    {
+        id: 3,
+        rating: 4.5,
         text: 'This is fun'
     }
 ]
