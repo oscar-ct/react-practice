@@ -8,7 +8,7 @@ function FeedbackStats({feedback}) {
     avg = avg.toFixed(1).replace(/[.,]0$/, '')
 
     return (
-        <div className="feedback-stats">
+        <div className="feedback-stats text-large">
             <h4>{feedback.length}</h4>
             <h4>Avg Rating: {isNaN(avg) ? 0 : avg}</h4>
         </div>
