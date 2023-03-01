@@ -2,7 +2,9 @@ import {useState} from "react";
 import Card from "./shared/Card";
 import Button from "./Button";
 import RatingSelect from "./RatingSelect";
-function FeedbackForm() {
+
+let id = 100;
+function FeedbackForm( {handleAdd} ) {
 
 
     const [text, setText] = useState('');
@@ -24,11 +26,25 @@ function FeedbackForm() {
       setText(e.target.value)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (text.trim().length > 10) {
+            const newFeedback = {
+                id: id++,
+                text: text,
+                rating: rating,
+            }
+            handleAdd(newFeedback);
+            setText('')
+        }
+
+    }
+
     // isDisabled={text.length > 10}
 
     return (
         <Card>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h2>How would you rate your service?</h2>
                 <RatingSelect select={(rating) => {
                     setRating(rating);

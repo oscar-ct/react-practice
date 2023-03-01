@@ -46,12 +46,18 @@ function App() {
 
     }
 
+    const addFeedback = (newFeedback) => {
+        console.log(newFeedback);
+        console.log(feedback);
+        setFeedback([newFeedback, ...feedback])
+    }
+
 
 
     return (
         <>
             <Header text="Test UI" bgColor='red' textColor='black' />
-            <FeedbackForm />
+            <FeedbackForm handleAdd={addFeedback}/>
             <FeedbackStats feedback={feedback}/>
             <FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>
             {/*<FeedbackItem />*/}
