@@ -1,11 +1,12 @@
 import Header from "./components/Header";
-import FeedbackItem from "./components/FeedbackItem";
 import { useState } from "react";
 import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
-import RatingSelect from "./components/RatingSelect";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import About from "./components/pages/About";
+
 
 function App() {
     const [feedback, setFeedback] = useState(FeedbackData)
@@ -55,30 +56,42 @@ function App() {
 
 
     return (
-        <>
-            <Header text="Test UI" bgColor='red' textColor='black' />
-            <FeedbackForm handleAdd={addFeedback}/>
-            <FeedbackStats feedback={feedback}/>
-            <FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>
-            {/*<FeedbackItem />*/}
-            <div className='container'>
-                <h1>Hello from the app component</h1>
-                <p>{title.toUpperCase()} :) {body}</p>
-                <p>{Math.ceil(Math.random() * (5 + 5))}</p>
-                <label htmlFor="main"/>
-                {showComments && commentBlock}
-                {/*{showComments ? (*/}
-                {/*    <div className="comments">*/}
-                {/*        <h3>Comments ({comments.length})</h3>*/}
-                {/*        <ul>*/}
-                {/*            {comments.map(function (comment, index) {*/}
-                {/*                return <li key={comment.id}>{comment.text}</li>*/}
-                {/*            })}*/}
-                {/*        </ul>*/}
-                {/*    </div>*/}
-                {/*) : 'no'}*/}
-            </div>
-        </>
+        <Router>
+            <Routes>
+                <Route exact path="/" element={
+                    <>
+                        <Header text="Test UI" bgColor='red' textColor='black' />
+                        <FeedbackForm handleAdd={addFeedback}/>
+                        <FeedbackStats feedback={feedback}/>
+                        <FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>
+                        {/*<FeedbackItem />*/}
+                        <div className='container'>
+                            <h1>Hello from the app component</h1>
+                            <p>{title.toUpperCase()} :) {body}</p>
+                            <p>{Math.ceil(Math.random() * (5 + 5))}</p>
+                            <label htmlFor="main"/>
+                            {showComments && commentBlock}
+                            {/*{showComments ? (*/}
+                            {/*    <div className="comments">*/}
+                            {/*        <h3>Comments ({comments.length})</h3>*/}
+                            {/*        <ul>*/}
+                            {/*            {comments.map(function (comment, index) {*/}
+                            {/*                return <li key={comment.id}>{comment.text}</li>*/}
+                            {/*            })}*/}
+                            {/*        </ul>*/}
+                            {/*    </div>*/}
+                            {/*) : 'no'}*/}
+                        </div>
+                    </>
+
+                }>
+
+                </Route>
+                <Route path="/about" element={<About/>}>
+
+                </Route>
+            </Routes>
+        </Router>
     )
 }
 export default App;
