@@ -7,6 +7,7 @@ import FeedbackForm from "./components/FeedbackForm";
 import {BrowserRouter as Router, Route, Routes, NavLink} from "react-router-dom";
 import About from "./components/pages/About";
 import AboutIconLink from "./components/AboutIconLink";
+import Post from "./components/Post";
 
 
 function App() {
@@ -89,7 +90,9 @@ function App() {
 
                 </Route>
                 <Route path="/about" element={<About/>}>
+                </Route>
 
+                <Route path="/post/:id/:name" element={<Post/>}>
                 </Route>
 
 
@@ -101,6 +104,7 @@ function App() {
             {/*<NavLink to='/' activeClassName="active">*/}
             {/*    HOME*/}
             {/*</NavLink>*/}
+
         </Router>
     )
 }
