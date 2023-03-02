@@ -4,7 +4,7 @@ import FeedbackList from "./components/FeedbackList";
 import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats";
 import FeedbackForm from "./components/FeedbackForm";
-import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes, NavLink} from "react-router-dom";
 import About from "./components/pages/About";
 import AboutIconLink from "./components/AboutIconLink";
 
@@ -95,6 +95,12 @@ function App() {
 
             </Routes>
             <AboutIconLink />
+            {/*<NavLink to='/about' activeClassName="active">*/}
+            {/*    ABOUT*/}
+            {/*</NavLink>*/}
+            {/*<NavLink to='/' activeClassName="active">*/}
+            {/*    HOME*/}
+            {/*</NavLink>*/}
         </Router>
     )
 }

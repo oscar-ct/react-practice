@@ -8,3 +8,8 @@ body {
 .text-large {
     font-size: 28px;
 }
+
+.active {
+    font-size: 36px;
+    color: red;
+}
