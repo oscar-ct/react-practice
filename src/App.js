@@ -8,6 +8,7 @@ import {BrowserRouter as Router, Route, Routes, NavLink} from "react-router-dom"
 import About from "./components/pages/About";
 import AboutIconLink from "./components/AboutIconLink";
 import Post from "./components/Post";
+import {FeedbackProvider} from "./context/FeedbackContext";
 
 
 function App() {
@@ -58,54 +59,56 @@ function App() {
 
 
     return (
-        <Router>
-            <Routes>
-                <Route exact path="/" element={
-                    <>
-                        <Header text="Test UI" bgColor='red' textColor='black' />
-                        <FeedbackForm handleAdd={addFeedback}/>
-                        <FeedbackStats feedback={feedback}/>
-                        <FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>
-                        {/*<FeedbackItem />*/}
-                        <div className='container'>
-                            <h1>Hello from the app component</h1>
-                            <p>{title.toUpperCase()} :) {body}</p>
-                            <p>{Math.ceil(Math.random() * (5 + 5))}</p>
-                            <label htmlFor="main"/>
-                            {showComments && commentBlock}
-                            {/*{showComments ? (*/}
-                            {/*    <div className="comments">*/}
-                            {/*        <h3>Comments ({comments.length})</h3>*/}
-                            {/*        <ul>*/}
-                            {/*            {comments.map(function (comment, index) {*/}
-                            {/*                return <li key={comment.id}>{comment.text}</li>*/}
-                            {/*            })}*/}
-                            {/*        </ul>*/}
-                            {/*    </div>*/}
-                            {/*) : 'no'}*/}
-                        </div>
-                    </>
+        <FeedbackProvider>
+            <Router>
+                <Routes>
+                    <Route exact path="/" element={
+                        <>
+                            <Header text="Test UI" bgColor='red' textColor='black' />
+                            <FeedbackForm handleAdd={addFeedback}/>
+                            <FeedbackStats feedback={feedback}/>
+                            <FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>
+                            {/*<FeedbackItem />*/}
+                            <div className='container'>
+                                <h1>Hello from the app component</h1>
+                                <p>{title.toUpperCase()} :) {body}</p>
+                                <p>{Math.ceil(Math.random() * (5 + 5))}</p>
+                                <label htmlFor="main"/>
+                                {showComments && commentBlock}
+                                {/*{showComments ? (*/}
+                                {/*    <div className="comments">*/}
+                                {/*        <h3>Comments ({comments.length})</h3>*/}
+                                {/*        <ul>*/}
+                                {/*            {comments.map(function (comment, index) {*/}
+                                {/*                return <li key={comment.id}>{comment.text}</li>*/}
+                                {/*            })}*/}
+                                {/*        </ul>*/}
+                                {/*    </div>*/}
+                                {/*) : 'no'}*/}
+                            </div>
+                        </>
 
-                }>
+                    }>
 
-                </Route>
-                <Route path="/about" element={<About/>}>
-                </Route>
+                    </Route>
+                    <Route path="/about" element={<About/>}>
+                    </Route>
 
-                {/*<Route path="/post/:id/:name" element={<Post/>}></Route>*/}
-                <Route path="/post*" element={<Post/>}/>
+                    {/*<Route path="/post/:id/:name" element={<Post/>}></Route>*/}
+                    <Route path="/post*" element={<Post/>}/>
 
 
-            </Routes>
-            <AboutIconLink />
-            {/*<NavLink to='/about' activeClassName="active">*/}
-            {/*    ABOUT*/}
-            {/*</NavLink>*/}
-            {/*<NavLink to='/' activeClassName="active">*/}
-            {/*    HOME*/}
-            {/*</NavLink>*/}
+                </Routes>
+                <AboutIconLink />
+                {/*<NavLink to='/about' activeClassName="active">*/}
+                {/*    ABOUT*/}
+                {/*</NavLink>*/}
+                {/*<NavLink to='/' activeClassName="active">*/}
+                {/*    HOME*/}
+                {/*</NavLink>*/}
 
-        </Router>
+            </Router>
+        </FeedbackProvider>
     )
 }
 export default App;
