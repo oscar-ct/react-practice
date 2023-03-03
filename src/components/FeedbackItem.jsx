@@ -40,7 +40,7 @@ function FeedbackItem({ item }) {
                 {/*<button onClick={() => handleDelete(item.id)} className="close">*/}
                     <FaTimes color="purple" />
                 </button>
-                <button onClick={function (item) {
+                <button onClick={function () {
                     return editFeedback(item);
                 }}>
                    <FaEdit color="purple"/>
