@@ -92,8 +92,8 @@ function App() {
                 <Route path="/about" element={<About/>}>
                 </Route>
 
-                <Route path="/post/:id/:name" element={<Post/>}>
-                </Route>
+                {/*<Route path="/post/:id/:name" element={<Post/>}></Route>*/}
+                <Route path="/post*" element={<Post/>}/>
 
 
             </Routes>
