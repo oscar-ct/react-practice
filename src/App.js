@@ -66,8 +66,12 @@ function App() {
                         <>
                             <Header text="Test UI" bgColor='red' textColor='black' />
                             <FeedbackForm handleAdd={addFeedback}/>
-                            <FeedbackStats feedback={feedback}/>
-                            <FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>
+                            <FeedbackStats />
+                        {/*Feedback prop is no longer required using context instead*/}
+                            {/*<FeedbackStats feedback={feedback}/>*/}
+                            <FeedbackList handleDelete2={deleteFeedback}/>
+                        {/*Feedback prop is no longer required using context instead*/}
+                            {/*<FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>*/}
                             {/*<FeedbackItem />*/}
                             <div className='container'>
                                 <h1>Hello from the app component</h1>
@@ -95,7 +99,7 @@ function App() {
                     </Route>
 
                     {/*<Route path="/post/:id/:name" element={<Post/>}></Route>*/}
-                    <Route path="/post*" element={<Post/>}/>
+                    <Route path="/post/*" element={<Post/>}/>
 
 
                 </Routes>
