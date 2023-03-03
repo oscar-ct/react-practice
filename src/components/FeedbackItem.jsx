@@ -1,14 +1,14 @@
 import {useState} from 'react';
 import Card from "./shared/Card";
 import PropTypes from "prop-types";
-import {FaTimes} from "react-icons/fa";
+import {FaTimes, FaEdit} from "react-icons/fa";
 import {useContext} from "react";
 import FeedbackContext from "../context/FeedbackContext";
 
 function FeedbackItem({ item }) {
 // function FeedbackItem({ item, handleDelete}) {
 
-    const {deleteFeedback} = useContext(FeedbackContext);
+    const {deleteFeedback, editFeedback} = useContext(FeedbackContext);
 
     const [rating, setRating] = useState(7)
     const [text, setText] = useState("This is an example of a feedback item")
@@ -39,6 +39,11 @@ function FeedbackItem({ item }) {
                 <button onClick={() => deleteFeedback(item.id)} className="close">
                 {/*<button onClick={() => handleDelete(item.id)} className="close">*/}
                     <FaTimes color="purple" />
+                </button>
+                <button onClick={function (item) {
+                    return editFeedback(item);
+                }}>
+                   <FaEdit color="purple"/>
                 </button>
             </Card>
             {/*This is hard coding use states*/}
