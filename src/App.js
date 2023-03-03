@@ -41,20 +41,21 @@ function App() {
         </ul>
     </div>;
 
-    const deleteFeedback = (id) => {
-        if (window.confirm("Are you sure you want to delete?")) {
-            setFeedback(feedback.filter(function (item) {
-                return item.id !== id;
-            }))
-        }
 
-    }
+// since using context this is now being moved to FeedbackContext.js
+    // const deleteFeedback = (id) => {
+    //     if (window.confirm("Are you sure you want to delete?")) {
+    //         setFeedback(feedback.filter(function (item) {
+    //             return item.id !== id;
+    //         }))
+    //     }
+    // }
 
-    const addFeedback = (newFeedback) => {
-        console.log(newFeedback);
-        console.log(feedback);
-        setFeedback([newFeedback, ...feedback])
-    }
+    // const addFeedback = (newFeedback) => {
+    //     console.log(newFeedback);
+    //     console.log(feedback);
+    //     setFeedback([newFeedback, ...feedback])
+    // }
 
 
 
@@ -65,13 +66,22 @@ function App() {
                     <Route exact path="/" element={
                         <>
                             <Header text="Test UI" bgColor='red' textColor='black' />
-                            <FeedbackForm handleAdd={addFeedback}/>
-                            <FeedbackStats />
-                        {/*Feedback prop is no longer required using context instead*/}
+
+                    {/*Feedback prop is no longer required using context instead*/}
+                            {/*<FeedbackForm handleAdd={addFeedback}/>*/}
+                            <FeedbackForm />
+
+
+                    {/*Feedback prop is no longer required using context instead*/}
                             {/*<FeedbackStats feedback={feedback}/>*/}
-                            <FeedbackList handleDelete2={deleteFeedback}/>
-                        {/*Feedback prop is no longer required using context instead*/}
+                            <FeedbackStats />
+
+
+
+                    {/*Feedback prop && deleteFeedBack function is no longer required using context instead*/}
                             {/*<FeedbackList feedback={feedback} handleDelete2={deleteFeedback}/>*/}
+                            <FeedbackList />
+
                             {/*<FeedbackItem />*/}
                             <div className='container'>
                                 <h1>Hello from the app component</h1>

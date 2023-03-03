@@ -2,7 +2,13 @@ import {useState} from 'react';
 import Card from "./shared/Card";
 import PropTypes from "prop-types";
 import {FaTimes} from "react-icons/fa";
-function FeedbackItem({ item, handleDelete}) {
+import {useContext} from "react";
+import FeedbackContext from "../context/FeedbackContext";
+
+function FeedbackItem({ item }) {
+// function FeedbackItem({ item, handleDelete}) {
+
+    const {deleteFeedback} = useContext(FeedbackContext);
 
     const [rating, setRating] = useState(7)
     const [text, setText] = useState("This is an example of a feedback item")
@@ -29,7 +35,9 @@ function FeedbackItem({ item, handleDelete}) {
                 {/*This is using object destructuring from a prop*/}
                 <div className="num-display">{item.rating}</div>
                 <div className="text-display">{item.text}</div>
-                <button onClick={() => handleDelete(item.id)} className="close">
+        {/*// this is now changed using context*/}
+                <button onClick={() => deleteFeedback(item.id)} className="close">
+                {/*<button onClick={() => handleDelete(item.id)} className="close">*/}
                     <FaTimes color="purple" />
                 </button>
             </Card>

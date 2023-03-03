@@ -4,9 +4,9 @@ import {motion, AnimatePresence} from "framer-motion";
 import {useContext} from "react";
 import FeedbackContext from "../context/FeedbackContext";
 
-function FeedbackList({handleDelete2}) {
+function FeedbackList() {
 
-// No longer going to use prop feedback instead going to use context
+// No longer going to use prop feedback instead going to use context && handleDelete
 
 // function FeedbackList({ feedback, handleDelete2}) {
     const {feedback} = useContext(FeedbackContext);
@@ -20,7 +20,9 @@ function FeedbackList({handleDelete2}) {
             {feedback.map(function (item) {
                 return (
                     <motion.div key={item.id} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-                    <FeedbackItem key={item.id} item={item} handleDelete={handleDelete2}/>
+        {/*// using context no longer need*/}
+        {/*            <FeedbackItem key={item.id} item={item} handleDelete={handleDelete2}/>*/}
+                    <FeedbackItem key={item.id} item={item} />
                     </motion.div>
                 )
             })}
