@@ -7,11 +7,12 @@ const UseMemoExample = () => {
 
     // const sqrt = getSqrt(number);
 
+    /// useMemo will not work without dependency
     const sqrt = useMemo(() => {
-        return getSqrt(number)
+        return getSqrt(number);
     }, [number]);
 
-    const renders = useRef(1)
+    const renders = useRef(1);
 
     useEffect(function() {
         renders.current = renders.current + 1
@@ -19,14 +20,14 @@ const UseMemoExample = () => {
 
     const onClick = () => {
       setInc((prevState => {
-          console.log(prevState + 1)
-          return prevState + 1
-      }))
+          console.log(prevState + 1);
+          return prevState + 1;
+      }));
     }
     return (
         <div>
             <input type="number" value={number} onChange={(e) => {
-                setNumber(e.target.value)
+                setNumber(e.target.value);
             }}/>
             <h2>The square root of {number} is {sqrt}</h2>
             <button onClick={()=>onClick()}>Re-render</button>
@@ -37,11 +38,11 @@ const UseMemoExample = () => {
 
 
 function getSqrt(n) {
-    for (let i = 0; i <= 50000; i++) {
-        console.log(i)
+    for (let i = 0; i <= 1000; i++) {
+        console.log(i);
     }
-    console.log("Expensive function called")
-    return Math.sqrt(n)
+    console.log("Expensive function called");
+    return Math.sqrt(n);
 }
 
 export default UseMemoExample;
