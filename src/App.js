@@ -9,10 +9,12 @@ import About from "./components/pages/About";
 import AboutIconLink from "./components/AboutIconLink";
 import Post from "./components/Post";
 import {FeedbackProvider} from "./context/FeedbackContext";
+import UseRefExample2 from "./components/useRefExamples/UseRefExample2";
+import UseRefExample3 from "./components/useRefExamples/UseRefExample3";
 
 
 function App() {
-    const [feedback, setFeedback] = useState(FeedbackData)
+    // const [feedback, setFeedback] = useState(FeedbackData)
     const title = 'Blog Post';
     const body = 'This is my blog post';
     const comments = [
@@ -65,6 +67,8 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={
                         <>
+                            <UseRefExample2/>
+                            <UseRefExample3/>
                             <Header text="Test UI" bgColor='red' textColor='black' />
 
                     {/*Feedback prop is no longer required using context instead*/}
