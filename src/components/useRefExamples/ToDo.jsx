@@ -17,7 +17,7 @@ const ToDo = () => {
                        setTodo(data)
                        setLoading(false)
                    }
-               }, 3000)
+               }, 3000);
            });
        });
        /// this runs when component is unmounted
